@@ -8,6 +8,8 @@ env.read_env(BASE_DIR('.env'))
 DEBUG = True
 
 INSTALLED_APPS = [
+    'rest_framework_swagger',
+    'rest_framework',
     'apps.restaurants',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -15,6 +17,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'drf_yasg'
 ]
 
 MIDDLEWARE = [
@@ -32,7 +35,7 @@ ROOT_URLCONF = 'booking.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR('templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

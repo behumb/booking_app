@@ -3,11 +3,17 @@ from services.restaurant_service import restaurant_directory_path
 
 
 class FoodType(models.Model):
-    name = models.CharField('TypeName', max_length=50)
+    name = models.CharField('TypeName', max_length=50, unique=True)
+
+    def __str__(self):
+        return self.name
 
 
 class PaymentOptions(models.Model):
-    name = models.CharField('PaymentName', max_length=30)
+    name = models.CharField('PaymentName', max_length=30, unique=True)
+
+    def __str__(self):
+        return self.name
 
 
 class Restaurant(models.Model):
@@ -25,9 +31,16 @@ class Restaurant(models.Model):
         default=FoodType.objects.get(name='International').pk)
     payment_options = models.ManyToManyField(PaymentOptions)
     additional = models.CharField('Additional', max_length=150)
-    main_photo = models.ImageField(upload_to=restaurant_directory_path)
+    main_photo = models.ImageField('MainPhoto', upload_to=restaurant_directory_path)
+
+    def __str__(self):
+        return self.name
 
 
 class RestaurantGalleryPhoto(models.Model):
-    image = models.ImageField(upload_to=restaurant_directory_path)
+    short_name = models.CharField('PhotoName', max_length=30)
+    image = models.ImageField('URL', upload_to=restaurant_directory_path)
     restaurant = models.ForeignKey(Restaurant, related_name='photos', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.short_name
