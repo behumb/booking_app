@@ -1,5 +1,5 @@
 from django.db import models
-from services.restaurant_service import restaurant_directory_path
+from .services import restaurant_directory_path
 
 
 class FoodType(models.Model):
@@ -27,8 +27,7 @@ class Restaurant(models.Model):
     food_type = models.ForeignKey(
         FoodType,
         related_name='restaurants',
-        on_delete=models.SET_DEFAULT,
-        default=FoodType.objects.get(name='International').pk)
+        on_delete=models.CASCADE)
     payment_options = models.ManyToManyField(PaymentOptions)
     additional = models.CharField('Additional', max_length=150)
     main_photo = models.ImageField('MainPhoto', upload_to=restaurant_directory_path)

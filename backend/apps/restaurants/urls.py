@@ -1,5 +1,5 @@
 from rest_framework.routers import SimpleRouter
-from views.restaurants import FoodTypeViewSet, PaymentOptionsViewSet, RestaurantViewSet, RestaurantGalleryPhotoViewSet
+from .views import FoodTypeViewSet, PaymentOptionsViewSet, RestaurantViewSet, RestaurantGalleryPhotoViewSet
 
 router = SimpleRouter()
 router.register(r'food_types', FoodTypeViewSet, basename='food_types')

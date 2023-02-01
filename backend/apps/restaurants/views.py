@@ -1,6 +1,6 @@
 from rest_framework import status, viewsets, mixins
-from apps.restaurants.models import FoodType, PaymentOptions, RestaurantGalleryPhoto, Restaurant
-from serializers.restaurant import FoodTypeSerializer, PaymentOptionsSerializer, RestaurantGalleryPhotoSerializer, \
+from .models import FoodType, PaymentOptions, RestaurantGalleryPhoto, Restaurant
+from .serializers import FoodTypeSerializer, PaymentOptionsSerializer, RestaurantGalleryPhotoSerializer, \
     RestaurantSerializer
 
 

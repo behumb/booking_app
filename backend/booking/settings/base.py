@@ -51,7 +51,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'booking.wsgi.application'
 
 DATABASES = {
-    'default': env.db('DATABASE_URL', default='postgres://postgres:1234@localhost:5432/booking_bd')
+    'default': env.db('DATABASE_URL', default='postgres://booking_admin:1234@172.26.221.155:5432/booking_db')
 }
 
 AUTH_PASSWORD_VALIDATORS = [

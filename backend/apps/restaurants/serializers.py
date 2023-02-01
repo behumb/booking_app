@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from apps.restaurants.models import FoodType, PaymentOptions, Restaurant, RestaurantGalleryPhoto
+from .models import FoodType, PaymentOptions, Restaurant, RestaurantGalleryPhoto
 
 
 class FoodTypeSerializer(serializers.ModelSerializer):
