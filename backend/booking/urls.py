@@ -1,11 +1,9 @@
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 from drf_yasg.views import get_schema_view as get_swagger_view
 from drf_yasg import openapi
-from rest_framework_simplejwt.views import (
-    TokenObtainPairView,
-    TokenRefreshView,
-)
+from django.conf import settings
 
 schema_view = get_swagger_view(
     openapi.Info(
@@ -17,9 +15,9 @@ schema_view = get_swagger_view(
 )
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/v1/restaurants/', include('apps.restaurants.urls')),
-    path('docs/', schema_view.with_ui('swagger', cache_timeout=0), name='swagger-schema'),
-    path('api/v1/', include('djoser.urls')),
-    path('api/v1/', include('djoser.urls.jwt')),
-]
+                  path('admin/', admin.site.urls),
+                  path('api/v1/restaurants/', include('apps.restaurants.urls')),
+                  path('docs/', schema_view.with_ui('swagger', cache_timeout=0), name='swagger-schema'),
+                  path('api/v1/', include('djoser.urls')),
+                  path('api/v1/', include('djoser.urls.jwt')),
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

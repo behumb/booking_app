@@ -68,7 +68,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'booking.wsgi.application'
 
 DATABASES = {
-    'default': env.db('DATABASE_URL', default='postgres://booking_admin:1234@172.26.221.155:5432/booking_db')
+    'default': env.db('DATABASE_URL', default='postgres://booking_admin:1234@172.24.153.9:5432/booking_db')
 }
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -87,7 +87,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 SIMPLE_JWT = {
-    'AUTH_HEADER_TYPES': ('JWT',),
+    'AUTH_HEADER_TYPES': ('Bearer',),
     'ACCESS_TOKEN_LIFETIME': datetime.timedelta(days=1),
 }
 
